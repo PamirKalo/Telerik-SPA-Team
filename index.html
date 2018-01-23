@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <style>
+        .box {
+            background-color: #1b3650;
+            border: double;
+            height: 110px;
+            width: 200px;
+            display: inline-block;
+        }
+
+        .gameBoard {
+            text-align: center;
+        }
+
+        .button {
+            text-align: center;
+            height: 50px;
+            width: 100px;
+            display: inline-block;
+        }
+
+        .cardFace {
+            background-color: red;
+        }
+
+        hr {
+            border: groove;
+        }
+    </style>
+    <script>
+        var hasOpenCard = false;
+        function showCurrentCard() {
+            alert('show card face');
+            this.style.backgroundColor = "red";
+        }
+
+        function createBoard() {
+            var firstDivRow = document.querySelector(".row"),
+                    cloneDivRow = firstDivRow.cloneNode(true),
+                    divBoxColl = cloneDivRow.querySelectorAll(".box");
+            alert('in create board');
+            for (var i = 0; i < divBoxColl.length; i++) {
+                var box = divBoxColl[i];
+                box.addEventListener('click', showCurrentCard);
+            }
+
+            document.querySelector(".gameBoard").appendChild(cloneDivRow);
+        }
+    </script>
+</head>
+<body>
+<div class="button">
+    <button class="button" onclick="createBoard()">Crate game board</button>
+</div>
+<hr>
+<div class="gameBoard">
+    <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <div class="row">
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+        <div class="box"></div>
+    </div>
+    <!--<div class="row">-->
+    <!--<div class="box"></div>-->
+    <!--<div class="box"></div>-->
+    <!--<div class="box"></div>-->
+    <!--<div class="box"></div>-->
+    <!--</div>-->
+    <!--<div class="row">-->
+    <!--<div class="box"></div>-->
+    <!--<div class="box"></div>-->
+    <!--<div class="box"></div>-->
+    <!--<div class="box"></div>-->
+    <!--</div>-->
+</div>
+<hr>
+</body>
+</html>
