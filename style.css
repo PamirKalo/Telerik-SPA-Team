@@ -1,0 +1,26 @@
+ .box {
+            background-color: #1b3650;
+            border: double;
+            height: 110px;
+            width: 200px;
+            display: inline-block;
+        }
+
+        .gameBoard {
+            text-align: center;
+        }
+
+        .button {
+            text-align: center;
+            height: 50px;
+            width: 100px;
+            display: inline-block;
+        }
+
+        .cardFace {
+            background-color: red;
+        }
+
+        hr {
+            border: groove;
+        }
