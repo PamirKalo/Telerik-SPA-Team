@@ -1,7 +1,35 @@
 // slider
+
+var boardSize = 0;
 $( function() {
-    $( "#slider" ).slider();
+    var handle = $( "#custom-handle" );
+    $( "#slider" ).slider({
+        min: 8,
+        max: 16,
+        create: function() {
+            handle.text( $( this ).slider( "value" ));
+
+            },
+        slide: function( event, ui ) {
+
+            handle.text( ui.value );
+            boardSize = ui.value;
+        }
+    });
 } );
+// end of slider
+
+// Tooltip for visualizing the actual board
+$( function() {
+    $('#slider').tooltip({
+        show: { duration: 0 },
+        hide: { effect: "fade", duration: 100 },
+        track: true,
+        content: function() {
+            return ("<table><tr><td>X</td></tr></table>".repeat(boardSize));
+        }
+    });
+});
 
 var hasOpenCard = false;
 function showCurrentCard() {

@@ -1,26 +1,47 @@
  .box {
-            background-color: #1b3650;
-            border: double;
-            height: 110px;
-            width: 200px;
-            display: inline-block;
-        }
+    background-color: #1b3650;
+    border: double;
+    height: 110px;
+    width: 200px;
+    display: inline-block;
+}
 
-        .gameBoard {
-            text-align: center;
-        }
+.gameBoard {
+    text-align: center;
+}
 
-        .button {
-            text-align: center;
-            height: 50px;
-            width: 100px;
-            display: inline-block;
-        }
+.button {
+    text-align: center;
+    height: 50px;
+    width: 100px;
+    display: inline-block;
+}
 
-        .cardFace {
-            background-color: red;
-        }
+.cardFace {
+    background-color: red;
+}
 
-        hr {
-            border: groove;
-        }
+hr {
+    border: groove;
+}
+
+
+ #slider{
+     width:200px;
+     horiz-align: center;
+     display: inline-block;
+ }
+ /*SLIDER COUNTER*/
+ #custom-handle {
+     width: 3em;
+     height: 1.6em;
+     top: 50%;
+     margin-top: -.8em;
+     text-align: center;
+     line-height: 1.6em;
+ }
+
+ .customize{
+     text-align: center;
+     width: 100%;
+ }
