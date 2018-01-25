@@ -3,32 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<<<<<<< HEAD
     <script src="scripts/external/jquery/jquery.min.js"></script>
-    <script src="scripts/external/jquery/jquery.js"></script>
+    <script src="scripts/main.js"></script>
     <script src="scripts/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="style.css">
-    <script>
-        var hasOpenCard = false;
-        function showCurrentCard() {
-            alert('show card face');
-            this.style.backgroundColor = "red";
-        }
-
-        function createBoard() {
-            var firstDivRow = document.querySelector(".row"),
-                    cloneDivRow = firstDivRow.cloneNode(true),
-                    divBoxColl = cloneDivRow.querySelectorAll(".box");
-            alert('in create board');
-            for (var i = 0; i < divBoxColl.length; i++) {
-                var box = divBoxColl[i];
-                box.addEventListener('click', showCurrentCard);
-            }
-
-            document.querySelector(".gameBoard").appendChild(cloneDivRow);
-        }
-    </script>
->>>>>>> 6ab49082489b0295207eb2777708c19c62f8874f
+    <link rel="stylesheet" href="scripts/jquery-ui.min.css">
 </head>
 <body>
 <div class="button">
