@@ -48,12 +48,15 @@ $(function () {
             divBox,
             divRow;
 
+        var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2];
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
             for (var j = 0; j < colSize; j++) {
                 divBox = $("<div class='box'>")
                     .on('click', showCurrentCard);
                 divRow.append(divBox.attr('id', 'box' + idNumber));
+                divRow.append(divBox.attr('value', arr[idNumber-1]));
+                divRow.append(divBox.attr('open', false));
                 idNumber++;
             }
             divGameBoard.append(divRow);
@@ -64,11 +67,18 @@ $(function () {
     }
 
     var hasOpenCard = false;
-
+var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2];
     function showCurrentCard() {
         var el = $(this);
         var idText=  el.attr("id");
-        // alert('id='+idText);
-        this.style.backgroundColor = "red";
+         //alert('id='+idText);
+         this.style.backgroundColor = "red";
+         var cardOpen = el.attr("open");
+        if (!cardOpen) {
+            el.append(el.attr("value"));
+            el.attr("open", true);
+        }
+            
+         
     }
 });

@@ -3,7 +3,8 @@
     border: double;
     height: 110px;
     width: 200px;
-    display: inline-block;
+    display: table-cell;
+    
 }
 
 .gameBoard {
