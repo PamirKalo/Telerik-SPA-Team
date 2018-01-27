@@ -75,10 +75,13 @@ var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2];
          this.style.backgroundColor = "red";
          var cardOpen = el.attr("open");
         if (!cardOpen) {
+            $(this).toggleClass("rotated");
             el.append(el.attr("value"));
             el.attr("open", true);
         }
             
          
     }
+    
+    
 });

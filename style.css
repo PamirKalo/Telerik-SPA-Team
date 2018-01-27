@@ -46,3 +46,8 @@ hr {
      text-align: center;
      width: 100%;
  }
+ .rotated{
+    transform: rotateY(360deg);
+    transform-style: preserve-3d;
+    transition: all 0.8s linear;
+ }
