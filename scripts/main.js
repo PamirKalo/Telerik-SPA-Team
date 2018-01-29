@@ -4,18 +4,19 @@ var boardSize = 8;
 $(function () {
     var handle = $("#custom-handle");
     $("#slider").slider({
+        value: 8,
         min: 8,
-        max: 18,
+        max: 12,
+        step:2,
         create: function () {
             handle.text($(this).slider("value"));
-
         },
         slide: function (event, ui) {
-
             handle.text(ui.value);
             boardSize = ui.value;
         }
     });
+    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
 });
 // end of slider
 
@@ -26,8 +27,15 @@ $(function () {
         hide: {effect: "fade", duration: 100},
         track: true,
         content: function () {
-            return ("<table><tr><td>X</td></tr></table>".repeat(boardSize));
+            if(boardSize === 8) {
+                return ("<p>easy</p>");
+            }else if(boardSize === 10){
+                return ("<p>medium</p>");
+            }else {
+                return ("<p>hard</p>");
+            }
         }
+
     });
 });
 

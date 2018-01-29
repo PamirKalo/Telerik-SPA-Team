@@ -1,22 +1,8 @@
 // slider
 
 var boardSize = 0;
-$(function () {
-    var handle = $("#custom-handle");
-    $("#slider").slider({
-        min: 8,
-        max: 16,
-        create: function () {
-            handle.text($(this).slider("value"));
+$( function()  );
 
-        },
-        slide: function (event, ui) {
-
-            handle.text(ui.value);
-            boardSize = ui.value;
-        }
-    });
-});
 // end of slider
 
 // Tooltip for visualizing the actual board
