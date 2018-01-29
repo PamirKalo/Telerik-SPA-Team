@@ -44,7 +44,7 @@ $(function () {
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
 
-    var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2];
+    var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
     var divValueMap = new Map();
    // function createBoard(boardSize) {
 
@@ -87,22 +87,29 @@ $(function () {
 
 
          el.css("background-color", "red");
-        //  var currentCard=divValueMap.get(el.attr('id'));
+        
          
          el.html(divValueMap.get(el.attr('id')));
          $(this).toggleClass("rotated");
-          //alert(divValueMap.get('currentCardId'));
-
+          
+            
          if (hasOpenCard) {
             if (divValueMap.get(cardValueId)===divValueMap.get(el.attr('id'))) {
-                alert('equals');        
+    
+               $("#"+cardValueId).off('click');
+                el.off('click');
+               
             } else {
-                alert('no');
-                el.css("background-color", "");
-                el.html("");
-                $("#"+cardValueId).html('');
-                $("#"+cardValueId).css("background-color", "");
-            }
+                var idCurentCatd = $("#"+cardValueId);
+                setTimeout(function(){
+                  idCurentCatd.html('');
+                  idCurentCatd.css("background-color", "");
+                  el.css("background-color", "");
+                  el.html("");
+                },1000);
+                }
+               
+            
             hasOpenCard = false;
             cardValueId='';
          } else {
