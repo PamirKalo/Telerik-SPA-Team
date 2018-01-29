@@ -1,11 +1,11 @@
 // slider
 
-var boardSize = 0;
+var boardSize = 8;
 $(function () {
     var handle = $("#custom-handle");
     $("#slider").slider({
         min: 8,
-        max: 16,
+        max: 18,
         create: function () {
             handle.text($(this).slider("value"));
 
@@ -31,18 +31,19 @@ $(function () {
     });
 });
 
-
 // create game 4x4 board when button is clicked
 $(function () {
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
 
-    function createBoard(boardSize) {
+    function createBoard() {
         if (hasBoard) { // prevent creation infinity boards
             return;
-        }
-        var rowSize = 4,
-            colSize = 4,
+        } 
+
+        alert(boardSize);
+        var rowSize = 4,// Math.floor(Math.sqrt(boardSize*2))
+            colSize = boardSize*2/4,
             idNumber = 1,
             divGameBoard = $("<div class='gameBoard' id='#gameBoard'>"),
             divBox,
@@ -70,6 +71,7 @@ $(function () {
 var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2];
     function showCurrentCard() {
         var el = $(this);
+        alert(el.attr('id'))
         var idText=  el.attr("id");
          //alert('id='+idText);
          this.style.backgroundColor = "red";
@@ -79,9 +81,5 @@ var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2];
             el.append(el.attr("value"));
             el.attr("open", true);
         }
-            
-         
     }
-    
-    
 });
