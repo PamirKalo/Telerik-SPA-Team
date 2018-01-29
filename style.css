@@ -4,7 +4,7 @@
     height: 110px;
     width: 200px;
     display: table-cell;
-    
+    vertical-align: middle;
 }
 
 .gameBoard {
