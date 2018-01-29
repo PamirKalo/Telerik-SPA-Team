@@ -43,14 +43,14 @@ $(function () {
 $(function () {
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
-<<<<<<< HEAD
+
     var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2];
     var divValueMap = new Map();
-    function createBoard(boardSize) {
-=======
+   // function createBoard(boardSize) {
+
 
     function createBoard() {
->>>>>>> c9558bc7ad9c586bdd7b6586a07f33ed76e75153
+
         if (hasBoard) { // prevent creation infinity boards
             return;
         } 
@@ -84,7 +84,7 @@ $(function () {
     var cardValueId = '';
     function showCurrentCard() {
         var el = $(this);
-<<<<<<< HEAD
+
 
          el.css("background-color", "red");
         //  var currentCard=divValueMap.get(el.attr('id'));
@@ -116,17 +116,6 @@ $(function () {
     
 
     
-=======
-        alert(el.attr('id'))
-        var idText=  el.attr("id");
-         //alert('id='+idText);
-         this.style.backgroundColor = "red";
-         var cardOpen = el.attr("open");
-        if (!cardOpen) {
-            $(this).toggleClass("rotated");
-            el.append(el.attr("value"));
-            el.attr("open", true);
-        }
-    }
->>>>>>> c9558bc7ad9c586bdd7b6586a07f33ed76e75153
+
+       
 });
