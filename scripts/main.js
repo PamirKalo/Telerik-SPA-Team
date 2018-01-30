@@ -10,7 +10,7 @@ $(function () {
         value: 8,
         min: 8,
         max: 12,
-        step:2,
+        step: 2,
         create: function () {
             handle.text($(this).slider("value"));
         },
@@ -19,22 +19,27 @@ $(function () {
             boardSize = ui.value;
         }
     });
-    $( "#amount" ).val( "$" + $( "#slider" ).slider( "value" ) );
+    $("#amount").val("$" + $("#slider").slider("value"));
 });
 // end of slider
 
 // Tooltip for visualizing the actual board
 $(function () {
     $('#slider').tooltip({
-        show: {duration: 0},
-        hide: {effect: "fade", duration: 100},
+        show: {
+            duration: 0
+        },
+        hide: {
+            effect: "fade",
+            duration: 100
+        },
         track: true,
         content: function () {
-            if(boardSize === 8) {
+            if (boardSize === 8) {
                 return ("<p>easy</p>");
-            }else if(boardSize === 10){
+            } else if (boardSize === 10) {
                 return ("<p>medium</p>");
-            }else {
+            } else {
                 return ("<p>hard</p>");
             }
         }
@@ -49,31 +54,29 @@ $(function () {
 
     var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
     var divValueMap = new Map();
-   // function createBoard(boardSize) {
-
+    // function createBoard(boardSize) {
 
     function createBoard() {
-
         if (hasBoard) { // prevent creation infinity boards
             return;
-        } 
+        }
 
         alert(boardSize);
-        var rowSize = 4,// Math.floor(Math.sqrt(boardSize*2))
-            colSize = boardSize*2/4,
+        var rowSize = 4, // Math.floor(Math.sqrt(boardSize*2))
+            colSize = boardSize * 2 / 4,
             idNumber = 1,
             divGameBoard = $("<div class='gameBoard' id='#gameBoard'>"),
             divBox,
-            divRow;
+            divRow,
+            startButton = $("<button>Start game!</button>");
 
-        
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
             for (var j = 0; j < colSize; j++) {
                 divBox = $("<div class='box'>")
                     .on('click', showCurrentCard);
                 divRow.append(divBox.attr('id', 'box' + idNumber));
-                divValueMap.set('box'+idNumber, arr[idNumber-1]);
+                divValueMap.set('box' + idNumber, arr[idNumber - 1]);
                 idNumber++;
             }
             divGameBoard.append(divRow);
@@ -81,58 +84,50 @@ $(function () {
 
         $("body").append(divGameBoard);
         hasBoard = true;
+        if(hasBoard){
+            startButton.addClass("button");
+            $(".customize").append(startButton);
+        }
     }
 
     var hasOpenCard = false;
     var cardValueId = '';
+
     function showCurrentCard() {
         var el = $(this);
 
+        el.css("background-color", "red");
+        el.html(divValueMap.get(el.attr('id')));
+        $(this).toggleClass("rotated");
 
-         el.css("background-color", "red");
-        
-         
-         el.html(divValueMap.get(el.attr('id')));
-         $(this).toggleClass("rotated");
-          
-            
-         if (hasOpenCard) {
-            if (divValueMap.get(cardValueId)===divValueMap.get(el.attr('id'))) {
-    
-               $("#"+cardValueId).off('click');
+        if (hasOpenCard) {
+            if (divValueMap.get(cardValueId) === divValueMap.get(el.attr('id'))) {
+                $("#" + cardValueId).off('click');
                 el.off('click');
-               
             } else {
-                var idCurentCatd = $("#"+cardValueId);
-                setTimeout(function(){
-                  idCurentCatd.html('');
-                  idCurentCatd.css("background-color", "");
-                  el.css("background-color", "");
-                  el.html("");
-                },1000);
-                }
-               
-            
+                var idCurentCatd = $("#" + cardValueId);
+                setTimeout(function () {
+                    idCurentCatd.html('');
+                    idCurentCatd.css("background-color", "");
+                    el.css("background-color", "");
+                    el.html("");
+                }, 1000);
+            }
+
             hasOpenCard = false;
-            cardValueId='';
-         } else {
-             // to do 
-             //var currentCardId=el.attr('id');
-             cardValueId =el.attr('id');
-             hasOpenCard=true;
-         }
-        
+            cardValueId = '';
+        } else {
+            // to do 
+            //var currentCardId=el.attr('id');
+            cardValueId = el.attr('id');
+            hasOpenCard = true;
+        }
     }
-    
-
-    
-
-       
 });
 
 function validateForm() {
     var x = document.forms["myForm"]["fname"].value;
-    $('submit').css('display' , 'none');
+    $('submit').css('display', 'none');
     if (x == "") {
         alert("Name must be filled out");
         return false;
