@@ -33,6 +33,7 @@ hr {
      top: 50%;
      text-align: center;
      line-height: 1.6em;
+     margin-top: 0.8em;
  }
 
  .customize{
@@ -45,4 +46,11 @@ hr {
     transition: all 0.9s linear;
  }
 
+ .row{
+     margin: 0 auto !important;
+     width: 60% !important;
+ }
 
+.submit{
+    text-align: center;
+}

@@ -3,8 +3,9 @@
 
 
 var boardSize = 8;
+var score = 0 ;
 $(function () {
-    $("#submit").css("visibility" , "hidden");
+    $("#submit").css("display" , "none");
     // hide the score_submit form by default
     var handle = $("#custom-handle");
     $("#slider").slider({
@@ -50,6 +51,7 @@ $(function () {
 
 // create game 4x4 board when button is clicked
 $(function () {
+
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
 
@@ -61,8 +63,9 @@ $(function () {
         if (hasBoard) { // prevent creation infinity boards
             return;
         }
+        $("#customize").css("display" , "none");// //hide the customization screen
+        $("#submit").css("display" , "block");//show the form for submitting score
 
-        alert(boardSize);
         var rowSize = 4, // Math.floor(Math.sqrt(boardSize*2))
             colSize = boardSize * 2 / 4,
             idNumber = 1,
@@ -82,7 +85,6 @@ $(function () {
             }
             divGameBoard.append(divRow);
         }
-
         $("body").append(divGameBoard);
         hasBoard = true;
         if(hasBoard){
@@ -105,6 +107,8 @@ $(function () {
             if (divValueMap.get(cardId) === divValueMap.get(el.attr('id'))) {
                 $("#" + cardId).off('click');
                 el.off('click');
+                score +=10;
+                $("#score").html(score);
             } else {
                 var idCurentCatd = $("#" + cardId);
                 setTimeout(function () {
@@ -114,7 +118,6 @@ $(function () {
                     el.html("");
                 }, 1000);
             }
-
             hasOpenCard = false;
             cardId = '';
         } else {
