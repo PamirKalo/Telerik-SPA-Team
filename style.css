@@ -7,7 +7,12 @@
     vertical-align: middle;
 }
 
-.gameBoard {
+ .submit {
+     visibility: hidden;
+ }
+
+
+ .gameBoard {
     text-align: center;
 }
 
@@ -52,9 +57,4 @@ hr {
     transition: all 0.9s linear;
  }
 
-
- /*//score form */
- .submit {
-     visibility: hidden;
- }
 
