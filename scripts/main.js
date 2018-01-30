@@ -1,10 +1,11 @@
 // slider
-var submit = $(".submit");
-submit.css('visibility', 'visible');
-console.log(submit);
+
+
 
 var boardSize = 8;
 $(function () {
+    $("#submit").css("visibility" , "hidden");
+    // hide the score_submit form by default
     var handle = $("#custom-handle");
     $("#slider").slider({
         value: 8,
@@ -123,16 +124,11 @@ $(function () {
          }
         
     }
-    
-
-    
-
        
 });
 
 function validateForm() {
     var x = document.forms["myForm"]["fname"].value;
-    $('submit').css('display' , 'none');
     if (x == "") {
         alert("Name must be filled out");
         return false;

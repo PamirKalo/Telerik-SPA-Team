@@ -7,10 +7,6 @@
     vertical-align: middle;
 }
 
- .submit {
-     visibility: hidden;
- }
-
 
  .gameBoard {
     text-align: center;
@@ -32,13 +28,13 @@ hr {
 }
 
 
- #slider{
+ .slider{
      width:200px;
      horiz-align: center;
      display: inline-block;
  }
  /*SLIDER COUNTER*/
- #custom-handle {
+ .custom-handle {
      width: 3em;
      height: 1.6em;
      top: 50%;

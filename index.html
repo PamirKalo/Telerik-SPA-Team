@@ -10,17 +10,13 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="scripts/jquery-ui.min.css">
 </head>
-<div class="submit">
+<div id="submit">
     <form name="myForm" onsubmit="validateForm()" method="post">
         Name: <input type="text" name="fname">
         <input type="submit" value="Submit">
     </form>
 </div>
 <body>
-<div class="button">
-    <button class="button" id="createBoardBtn">Crate game board</button>
-</div>
-<hr>
 <!--<div class="gameBoard" id="gameBoard">-->
     <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
         <!--&lt;!&ndash;<div class="box"></div>&ndash;&gt;-->
@@ -32,9 +28,14 @@
 <hr>
 <div class="customize">
     <h2>Choose how many Cards you wish yo have</h2>
-    <div id="slider">
-        <div id="custom-handle" class="ui-slider-handle" title="slider"></div>
+    <div id="slider" class="slider">
+        <div class="custom-handle ui-slider-handle" title="slider"></div>
     </div>
 </div>
+
+<div class="button">
+    <button class="button" id="createBoardBtn">Crate game board</button>
+</div>
+<hr>
 </body>
 </html>
