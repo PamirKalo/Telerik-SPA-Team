@@ -6,28 +6,21 @@
     display: table-cell;
     vertical-align: middle;
 }
-
-
  .gameBoard {
     text-align: center;
 }
-
 .button {
     text-align: center;
     height: 50px;
     width: 100px;
     display: inline-block;
 }
-
 .cardFace {
     background-color: red;
 }
-
 hr {
     border: groove;
 }
-
-
  .slider{
      width:200px;
      horiz-align: center;
@@ -38,7 +31,6 @@ hr {
      width: 3em;
      height: 1.6em;
      top: 50%;
-     margin-top: -.8em;
      text-align: center;
      line-height: 1.6em;
  }

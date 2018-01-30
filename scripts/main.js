@@ -124,18 +124,10 @@ $(function () {
             hasOpenCard = true;
         }
     }
-<<<<<<< HEAD
-       
-=======
->>>>>>> 9f9aa0e201b9799310b9344416ae8b1149b2cff1
 });
 
 function validateForm() {
     var x = document.forms["myForm"]["fname"].value;
-<<<<<<< HEAD
-=======
-    $('submit').css('display', 'none');
->>>>>>> 9f9aa0e201b9799310b9344416ae8b1149b2cff1
     if (x == "") {
         alert("Name must be filled out");
         return false;
