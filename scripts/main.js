@@ -54,7 +54,7 @@ $(function () {
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
 
-    var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
+   // var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
     var divValueMap = new Map();
 
     // function createBoard(boardSize) {
@@ -73,6 +73,53 @@ $(function () {
             divBox,
             divRow,
             startButton = $("<button>Start game!</button>");
+
+            function randDigits(max, min){
+                return Math.floor(Math.random()*(max-min))+min;
+                }
+                
+                var arrfurst = [];
+                    for (var w=0; w<50; w+=1) {
+                        arrfurst.push({
+                        value: w+1,
+                        visit: false,
+                    });
+                }
+            
+                var input = [];
+                for (var p=0; p<boardSize*2; p+=2) {
+            
+                    var k=randDigits(0, 49);
+                
+                    while (arrfurst[k].visit) {
+                        k=randDigits(0, 49);
+                
+                    }
+                    input[p]={
+                        value: arrfurst[k].value,
+                        visit: false,
+                    };
+                    input[p+1]={
+                        value: arrfurst[k].value,
+                        visit: false,
+                    };
+                    arrfurst[k].visit=true;
+                }
+            
+            
+            var arr = [];
+            for (var t=0; t<boardSize*2; t+=1) {
+            
+                var m=randDigits(0, boardSize*2);
+            
+                while (input[m].visit) {
+                    m=randDigits(0, boardSize*2);
+            
+                }
+                arr[t]= input[m].value;
+            
+                input[m].visit=true;
+            }
 
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
