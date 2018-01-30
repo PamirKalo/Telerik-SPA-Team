@@ -89,7 +89,7 @@ $(function () {
         hasBoard = true;
         if(hasBoard){
             startButton.addClass("button");
-            $("#customize").append(startButton);
+            $("#submit").append(startButton);
         }
     }
 
