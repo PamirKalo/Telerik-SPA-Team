@@ -86,12 +86,12 @@ $(function () {
         hasBoard = true;
         if(hasBoard){
             startButton.addClass("button");
-            $(".customize").append(startButton);
+            $("#customize").append(startButton);
         }
     }
 
     var hasOpenCard = false;
-    var cardValueId = '';
+    var cardId = '';
 
     function showCurrentCard() {
         var el = $(this);
@@ -101,11 +101,11 @@ $(function () {
         $(this).toggleClass("rotated");
 
         if (hasOpenCard) {
-            if (divValueMap.get(cardValueId) === divValueMap.get(el.attr('id'))) {
-                $("#" + cardValueId).off('click');
+            if (divValueMap.get(cardId) === divValueMap.get(el.attr('id'))) {
+                $("#" + cardId).off('click');
                 el.off('click');
             } else {
-                var idCurentCatd = $("#" + cardValueId);
+                var idCurentCatd = $("#" + cardId);
                 setTimeout(function () {
                     idCurentCatd.html('');
                     idCurentCatd.css("background-color", "");
@@ -115,11 +115,11 @@ $(function () {
             }
 
             hasOpenCard = false;
-            cardValueId = '';
+            cardId = '';
         } else {
             // to do 
             //var currentCardId=el.attr('id');
-            cardValueId = el.attr('id');
+            cardId = el.attr('id');
             hasOpenCard = true;
         }
     }
