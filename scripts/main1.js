@@ -1,7 +1,4 @@
 // slider
-var submit = $(".submit");
-submit.css('visibility', 'visible');
-console.log(submit);
 
 var boardSize = 8;
 $(function () {
@@ -129,12 +126,3 @@ $(function () {
 
        
 });
-
-function validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    $('submit').css('display' , 'none');
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
-    }
-}
