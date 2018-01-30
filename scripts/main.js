@@ -3,9 +3,9 @@
 
 
 var boardSize = 8;
-var score = 0 ;
+var score = 0;
 $(function () {
-    $("#submit").css("display" , "none");
+    $("#submit").css("display", "none");
     // hide the score_submit form by default
     var handle = $("#custom-handle");
     $("#slider").slider({
@@ -63,8 +63,8 @@ $(function () {
         if (hasBoard) { // prevent creation infinity boards
             return;
         }
-        $("#customize").css("display" , "none");// //hide the customization screen
-        $("#submit").css("display" , "block");//show the form for submitting score
+        $("#customize").css("display", "none"); // //hide the customization screen
+        $("#submit").css("display", "block"); //show the form for submitting score
 
         var rowSize = 4, // Math.floor(Math.sqrt(boardSize*2))
             colSize = boardSize * 2 / 4,
@@ -87,16 +87,23 @@ $(function () {
         }
         $("body").append(divGameBoard);
         hasBoard = true;
-        if(hasBoard){
+        if (hasBoard) {
             startButton.addClass("button");
             $("#submit").append(startButton);
         }
     }
 
     var hasOpenCard = false;
-    var cardId = '';
+    var openedCardId = '';
+    var inSetTimeOut = false;
 
     function showCurrentCard() {
+        if (inSetTimeOut) {
+            return;
+        }
+        if (hasOpenCard && $(this).attr('id') === openedCardId) {
+            return;
+        }
         var el = $(this);
 
         el.css("background-color", "red");
@@ -104,26 +111,26 @@ $(function () {
         $(this).toggleClass("rotated");
 
         if (hasOpenCard) {
-            if (divValueMap.get(cardId) === divValueMap.get(el.attr('id'))) {
-                $("#" + cardId).off('click');
+            if (divValueMap.get(openedCardId) === divValueMap.get(el.attr('id'))) {
+                $("#" + openedCardId).off('click');
                 el.off('click');
-                score +=10;
+                score += 10;
                 $("#score").html(score);
             } else {
-                var idCurentCatd = $("#" + cardId);
+                var openedCard = $("#" + openedCardId);
+                inSetTimeOut = true;
                 setTimeout(function () {
-                    idCurentCatd.html('');
-                    idCurentCatd.css("background-color", "");
+                    openedCard.html('');
+                    openedCard.css("background-color", "");
                     el.css("background-color", "");
                     el.html("");
+                    inSetTimeOut = false;
                 }, 1000);
             }
             hasOpenCard = false;
-            cardId = '';
+            openedCardId = '';
         } else {
-            // to do 
-            //var currentCardId=el.attr('id');
-            cardId = el.attr('id');
+            openedCardId = el.attr('id');
             hasOpenCard = true;
         }
     }
