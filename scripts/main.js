@@ -1,11 +1,11 @@
-// slider
-
-
-
-var boardSize = 8;
-var score = 0;
 $(function () {
+    var boardSize = 8;
+    var score = 0;
+    var cardsType = 0;
+
+    // slider
     $("#submit").css("display", "none");
+
     // hide the score_submit form by default
     var handle = $("#custom-handle");
     $("#slider").slider({
@@ -22,11 +22,10 @@ $(function () {
         }
     });
     $("#amount").val("$" + $("#slider").slider("value"));
-});
-// end of slider
 
-// Tooltip for visualizing the actual board
-$(function () {
+    // end of slider
+
+    // Tooltip for visualizing the actual board
     $('#slider').tooltip({
         show: {
             duration: 0
@@ -47,14 +46,12 @@ $(function () {
         }
 
     });
-});
 
-// create game 4x4 board when button is clicked
-$(function () {
+    // create game 4x4 board when button is clicked
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
 
-   // var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
+    // var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
     var divValueMap = new Map();
 
     // function createBoard(boardSize) {
@@ -63,6 +60,7 @@ $(function () {
             return;
         }
 
+        cardsType = $("input[type='radio'][name='cardsType']:checked").val();
         $("#customize").hide(); // //hide the customization screen
         $("#submit").show(); //show the form for submitting score
 
@@ -74,52 +72,52 @@ $(function () {
             divRow,
             startButton = $("<button>Start game!</button>");
 
-            function randDigits(max, min){
-                return Math.floor(Math.random()*(max-min))+min;
-                }
-                
-                var arrfurst = [];
-                    for (var w=0; w<50; w+=1) {
-                        arrfurst.push({
-                        value: w+1,
-                        visit: false,
-                    });
-                }
-            
-                var input = [];
-                for (var p=0; p<boardSize*2; p+=2) {
-            
-                    var k=randDigits(0, 49);
-                
-                    while (arrfurst[k].visit) {
-                        k=randDigits(0, 49);
-                
-                    }
-                    input[p]={
-                        value: arrfurst[k].value,
-                        visit: false,
-                    };
-                    input[p+1]={
-                        value: arrfurst[k].value,
-                        visit: false,
-                    };
-                    arrfurst[k].visit=true;
-                }
-            
-            
-            var arr = [];
-            for (var t=0; t<boardSize*2; t+=1) {
-            
-                var m=randDigits(0, boardSize*2);
-            
-                while (input[m].visit) {
-                    m=randDigits(0, boardSize*2);
-            
-                }
-                arr[t]= input[m].value;
-            
-                input[m].visit=true;
+        function randDigits(max, min) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+
+        var arrfurst = [];
+        for (var w = 0; w < 50; w += 1) {
+            arrfurst.push({
+                value: w + 1,
+                visit: false,
+            });
+        }
+
+        var input = [];
+        for (var p = 0; p < boardSize * 2; p += 2) {
+
+            var k = randDigits(0, 49);
+
+            while (arrfurst[k].visit) {
+                k = randDigits(0, 49);
+
             }
+            input[p] = {
+                value: arrfurst[k].value,
+                visit: false,
+            };
+            input[p + 1] = {
+                value: arrfurst[k].value,
+                visit: false,
+            };
+            arrfurst[k].visit = true;
+        }
+
+
+        var arr = [];
+        for (var t = 0; t < boardSize * 2; t += 1) {
+
+            var m = randDigits(0, boardSize * 2);
+
+            while (input[m].visit) {
+                m = randDigits(0, boardSize * 2);
+
+            }
+            arr[t] = input[m].value;
+
+            input[m].visit = true;
+        }
 
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
@@ -181,12 +179,12 @@ $(function () {
             hasOpenCard = true;
         }
     }
-});
 
-function validateForm() {
-    var x = document.forms["myForm"]["fname"].value;
-    if (x == "") {
-        alert("Name must be filled out");
-        return false;
+    function validateForm() {
+        var x = document.forms["myForm"]["fname"].value;
+        if (x == "") {
+            alert("Name must be filled out");
+            return false;
+        }
     }
-}
+})
