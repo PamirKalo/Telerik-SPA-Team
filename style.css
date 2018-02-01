@@ -16,11 +16,15 @@
     display: inline-block;
 }
 .cardFace {
-    background-color: red;
+    /* background-color: red; */
+    
+    background-repeat: no-repeat;
+    background-color:white;
+    background-position: center;
 }
 hr {
     border: groove;
-}
+}s
  .slider{
      width:200px;
      horiz-align: center;
