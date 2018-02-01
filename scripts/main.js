@@ -108,7 +108,7 @@ $(function () {
 	        input[p+1]=k;
 	        arrVisit[k]=1;
 	    }
-
+        
 	    var arrVisitTwo=[];
 	    for (var t=0; t<boardSize*2; t+=1) {
 	        var m=randDigits(0, boardSize*2);
@@ -118,7 +118,7 @@ $(function () {
 	        arr[t]= input[m];
 	        arrVisitTwo[m]=true;
 	    }
-
+        
 
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
@@ -153,13 +153,13 @@ $(function () {
         var el = $(this);
 		var ind = divValueMap.get(el.attr("id"));
         $(this).toggleClass("rotated");
-
-        if (cardType===0){
+    
+        if (cardsType==='2'){
         el.addClass('cardFace');
         el.css('background-image', `url(scripts/images/${imageArr[ind]})`);
-        } else if (cardType===1) {
+        } else if (cardsType==='1') {
             el.html(`<div style='background-color:${colorArr[ind]};width: 100%;height:100%;'></div>`);
-        } else if (cardType===2) {
+        } else if (cardsType==='0') {
             el.css("background-color", "red");
             el.html(`${wordArr[ind]}`);
         }
