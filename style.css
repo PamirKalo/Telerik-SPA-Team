@@ -20,12 +20,7 @@
 }
 hr {
     border: groove;
-<<<<<<< HEAD
-<<<<<<< HEAD
-}s
-=======
 }
->>>>>>> parent of 9143ff9... add 3 array
  .slider{
      width:200px;
      horiz-align: center;
@@ -45,57 +40,8 @@ hr {
      text-align: center;
      width: 100%;
  }
+
  .rotated{
-=======
-}
-<<<<<<< HEAD
-
-.slider {
-    width: 200px;
-    horiz-align: center;
-    display: inline-block;
-}
-
-/*SLIDER COUNTER*/
-
-.custom-handle {
-    width: 3em;
-    height: 1.6em;
-    top: 50%;
-    text-align: center;
-    line-height: 1.6em;
-    margin-top: 0.8em;
-}
-
-.customize {
-    text-align: center;
-    width: 100%;
-}
-
-.rotated {
->>>>>>> b646b02b8b28772db70f452e8b9b50a232638565
-=======
- .slider{
-     width:200px;
-     horiz-align: center;
-     display: inline-block;
- }
- /*SLIDER COUNTER*/
- .custom-handle {
-     width: 3em;
-     height: 1.6em;
-     top: 50%;
-     text-align: center;
-     line-height: 1.6em;
-     margin-top: 0.8em;
- }
-
- .customize{
-     text-align: center;
-     width: 100%;
- }
- .rotated{
->>>>>>> parent of b646b02... added some images and styling
     transform: rotateY(360deg);
     transform-style: preserve-3d;
     transition: all 0.9s linear;

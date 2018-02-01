@@ -122,53 +122,9 @@ $(function () {
                 }
                 arr[t]= input[m].value;
             
-                arrVisitTwo[m]=true;
-        function randDigits(max, min) {
-            return Math.floor(Math.random() * (max - min)) + min;
-        }
-
-        var arrfurst = [];
-        for (var w = 0; w < 50; w += 1) {
-            arrfurst.push({
-                value: w + 1,
-                visit: false,
-            });
-        }
-
-        var input = [];
-        for (var p = 0; p < boardSize * 2; p += 2) {
-
-            var k = randDigits(0, 49);
-
-            while (arrfurst[k].visit) {
-                k = randDigits(0, 49);
-
-            }
-            input[p] = {
-                value: arrfurst[k].value,
-                visit: false,
-            };
-            input[p + 1] = {
-                value: arrfurst[k].value,
-                visit: false,
-            };
-            arrfurst[k].visit = true;
-        }
-
-
-        var arr = [];
-        for (var t = 0; t < boardSize * 2; t += 1) {
-
-            var m = randDigits(0, boardSize * 2);
-
-            while (input[m].visit) {
-                m = randDigits(0, boardSize * 2);
-
+                input[m].visit=true;
             }
             arr[t] = input[m].value;
-
-            input[m].visit = true;
-        }
 
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
@@ -202,41 +158,9 @@ $(function () {
         }
         var el = $(this);
 
-        if (cardType==="2"){
-          // el.css('background-image','url("scripts/images/image1.jpg")');
-          el.addClass('cardFace');
-          //el.css("background-color", "white");
-          //el.html(`<img src="scripts/images/${imageArr[ind]}">`);
-          el.css('background-image', `url(scripts/images/${imageArr[ind]})`);
-         // el.css('background-image', `url(scripts/images/image25.jpg)`);
-          
-        } else if (cardType==="1") {
-             el.html(`<div style='background-color:${colorArr[ind]};width: 100%;height:100%;'></div>`);
-        } else if (cardType==="0") {
-            //el.addClass('cardFaceWord');
-            el.css("background-color", "red");
-            el.html(`${wordArr[ind]}`);
-            
-        }
-        // var colorArr2 = ['#5d8aa8','#f0f8ff','#e32636','#efdecd','#ffbf00','#a4c639','#cd9575','#915c83','#008000',
-        // '#fdee00','#66ff00','#004225','#480607','#cc5500','#702963','#c19a6b','#00cc99','#ffa700','#5d8aa8','#f0f8ff','#e32636','#efdecd','#ffbf00','#a4c639','#cd9575','#915c83','#008000',
-        // '#fdee00','#66ff00','#004225','#480607','#cc5500','#702963','#c19a6b','#00cc99','#ffa700'];
-
-    //     var colorArr = ['#5d8aa8','#f0f8ff','#e32636','#efdecd','#ffbf00','#a4c639','#cd9575','#915c83','#008000',
-    // '#fdee00','#66ff00','#004225','#480607','#cc5500','#702963','#c19a6b','#00cc99','#ffa700'];
-        //el.css("background-color", "white");
-       // el.addClass('cardFace');
-       // el.css('background-image',`url(${divValueMap.get(el.attr("id"))})`);
-      // var realData = 'duma, link, color';
-       // el.html(patern);   // kotki
-        //el.html(''+ realData);  // dumi
-       // el.html();
-       // el.html('<img src="scripts/images/image1.jpg">');
-       // el.html("<div style='background-color:red;width: 100%;height:100%;'></div>");
-        //el.html("<div style='background-image:url(scripts/images/image1.jpg);width: 100%;height:100%;'></div>");
-       // el.html('`${tujf}`');
-
-       // $(this).toggleClass("rotated");
+        el.css("background-color", "red");
+        el.html(divValueMap.get(el.attr('id')));
+        $(this).toggleClass("rotated");
 
         if (hasOpenCard) {
             if (divValueMap.get(openedCardId) === divValueMap.get(el.attr('id'))) {
