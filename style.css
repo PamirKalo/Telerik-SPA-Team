@@ -16,16 +16,16 @@
     display: inline-block;
 }
 .cardFace {
-    /* background-color: red; */
-    
-    background-repeat: no-repeat;
-    background-color:white;
-    background-position: center;
+    background-color: red;
 }
 hr {
     border: groove;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }s
+=======
+}
+>>>>>>> parent of 9143ff9... add 3 array
  .slider{
      width:200px;
      horiz-align: center;

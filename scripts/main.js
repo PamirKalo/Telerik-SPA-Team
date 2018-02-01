@@ -4,31 +4,6 @@
 
 var boardSize = 8;
 var score = 0;
-var cardType = 2;
-var speedType = 0;
-var speed;
-
-if(speedType===0){
-    speed = 1000;
-} else if (speedType ===1) {
-    speed = 2000;
-} else if (speedType ===2) {
-    speed = 3000;
-}
-
-
-var imageArr=["image1.jpg","image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg", "image7.jpg",
-"image8.jpg", "image9.jpg", "image10.jpg", "image11.jpg", "image12.jpg", "image13.jpg", "image14.jpg", "image15.jpg",
-"image16.jpg", "image17.jpg", "image18.jpg", "image19.jpg", "image20.jpg", ];
-
-var colorArr = ['#5d8aa8','#f0f8ff','#e32636','#efdecd','#ffbf00','#a4c639','#cd9575','#915c83','#008000',
-     '#fdee00','#66ff00','#004225','#480607','#cc5500','#702963','#c19a6b','#00cc99','#ffa700', '#ffffff', '#000000'];
-     
-var  wordArr = ['Variables', 'Math', 'Array', 'if-else', 'function', 'const', 'let', 'random', 'loop', 'for', 
-'switch-case', 'object', 'regex', 'map', 'set', 'graph', 'three', 'link-list', 'scope', 'booleans',];
-
-var arr = [];
-
 $(function () {
     var boardSize = 8;
     var score = 0;
@@ -107,45 +82,45 @@ $(function () {
                 return Math.floor(Math.random()*(max-min))+min;
                 }
                 
-            //     var arrfurst = [];
-            //         for (var w=0; w<50; w+=1) {
-            //             arrfurst.push({
-            //             value: w+1,
-            //             visit: false,
-            //         });
-            //     }
-                var arrVisit = [];
-
+                var arrfurst = [];
+                    for (var w=0; w<50; w+=1) {
+                        arrfurst.push({
+                        value: w+1,
+                        visit: false,
+                    });
+                }
+            
                 var input = [];
                 for (var p=0; p<boardSize*2; p+=2) {
             
-                    var k=randDigits(0, 20);
+                    var k=randDigits(0, 49);
                 
-                    while (arrVisit[k]===1) {
-                        k=randDigits(0, 20);
+                    while (arrfurst[k].visit) {
+                        k=randDigits(0, 49);
                 
                     }
-                    input[p]=k;
-                    input[p+1]=k;
-                    arrVisit[k]=1;
+                    input[p]={
+                        value: arrfurst[k].value,
+                        visit: false,
+                    };
+                    input[p+1]={
+                        value: arrfurst[k].value,
+                        visit: false,
+                    };
+                    arrfurst[k].visit=true;
                 }
-            //alert(input);
             
-        //     var arr = ["scripts/images/image1.jpg","scripts/images/image1.jpg", "scripts/images/image1.jpg",
-        //     "scripts/images/image1.jpg","scripts/images/image1.jpg","scripts/images/image1.jpg","scripts/images/image1.jpg",
-        //     "scripts/images/image1.jpg","scripts/images/image1.jpg","scripts/images/image1.jpg","scripts/images/image1.jpg",
-        // ,"scripts/images/image1.jpg","scripts/images/image1.jpg","scripts/images/image1.jpg","scripts/images/image1.jpg","scripts/images/image1.jpg" ];
-                var arrVisitTwo=[];
-                
-                for (var t=0; t<boardSize*2; t+=1) {
+            
+            var arr = [];
+            for (var t=0; t<boardSize*2; t+=1) {
             
                 var m=randDigits(0, boardSize*2);
             
-                while (arrVisitTwo[m]) {
+                while (input[m].visit) {
                     m=randDigits(0, boardSize*2);
             
                 }
-                arr[t]= input[m];
+                arr[t]= input[m].value;
             
                 arrVisitTwo[m]=true;
         function randDigits(max, min) {
@@ -195,8 +170,6 @@ $(function () {
             input[m].visit = true;
         }
 
-         
-
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
             for (var j = 0; j < colSize; j++) {
@@ -228,8 +201,6 @@ $(function () {
             return;
         }
         var el = $(this);
-        var ind = divValueMap.get(el.attr("id"));
-        $(this).toggleClass("rotated");
 
         if (cardType==="2"){
           // el.css('background-image','url("scripts/images/image1.jpg")');
@@ -277,19 +248,12 @@ $(function () {
                 var openedCard = $("#" + openedCardId);
                 inSetTimeOut = true;
                 setTimeout(function () {
-                    openedCard.html("");
+                    openedCard.html('');
                     openedCard.css("background-color", "");
-                    openedCard.css("background-image", "");
-                    openedCard.removeClass('cardFace');
-                    openedCard.toggleClass('rotated');
-                    el.removeClass('cardFace');
-                    el.css("background-image", "");
                     el.css("background-color", "");
                     el.html("");
-                    el.toggleClass('rotated');
-                    
                     inSetTimeOut = false;
-                }, speed);
+                }, 1000);
             }
             hasOpenCard = false;
             openedCardId = '';
