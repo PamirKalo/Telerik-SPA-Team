@@ -231,7 +231,7 @@ $(function () {
         var ind = divValueMap.get(el.attr("id"));
         $(this).toggleClass("rotated");
 
-        if (cardType===0){
+        if (cardType==="2"){
           // el.css('background-image','url("scripts/images/image1.jpg")');
           el.addClass('cardFace');
           //el.css("background-color", "white");
@@ -239,9 +239,9 @@ $(function () {
           el.css('background-image', `url(scripts/images/${imageArr[ind]})`);
          // el.css('background-image', `url(scripts/images/image25.jpg)`);
           
-        } else if (cardType===1) {
+        } else if (cardType==="1") {
              el.html(`<div style='background-color:${colorArr[ind]};width: 100%;height:100%;'></div>`);
-        } else if (cardType===2) {
+        } else if (cardType==="0") {
             //el.addClass('cardFaceWord');
             el.css("background-color", "red");
             el.html(`${wordArr[ind]}`);
