@@ -124,7 +124,10 @@ $(function () {
             
                 input[m].visit=true;
             }
+<<<<<<< HEAD
             arr[t] = input[m].value;
+=======
+>>>>>>> parent of 9143ff9... add 3 array
 
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
