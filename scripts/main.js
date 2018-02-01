@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // slider
 
 
@@ -30,8 +29,6 @@ var  wordArr = ['Variables', 'Math', 'Array', 'if-else', 'function', 'const', 'l
 
 var arr = [];
 
-=======
->>>>>>> b646b02b8b28772db70f452e8b9b50a232638565
 $(function () {
     var boardSize = 8;
     var score = 0;
@@ -106,7 +103,6 @@ $(function () {
             divRow,
             startButton = $("<button>Start game!</button>");
 
-<<<<<<< HEAD
             function randDigits(max, min){
                 return Math.floor(Math.random()*(max-min))+min;
                 }
@@ -152,7 +148,6 @@ $(function () {
                 arr[t]= input[m];
             
                 arrVisitTwo[m]=true;
-=======
         function randDigits(max, min) {
             return Math.floor(Math.random() * (max - min)) + min;
         }
@@ -194,7 +189,6 @@ $(function () {
             while (input[m].visit) {
                 m = randDigits(0, boardSize * 2);
 
->>>>>>> b646b02b8b28772db70f452e8b9b50a232638565
             }
             arr[t] = input[m].value;
 
