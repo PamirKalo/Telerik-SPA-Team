@@ -1,4 +1,10 @@
- .box {
+body {
+    background-image: url("scripts/images/preview-1_vr-sg-g131-.jpg");
+    /* /scripts/images/clubs-884194_960_720.png  */
+    /* background-color: #811212; */
+}
+
+.box {
     background-color: #1b3650;
     border: double;
     height: 110px;
@@ -6,15 +12,18 @@
     display: table-cell;
     vertical-align: middle;
 }
- .gameBoard {
+
+.gameBoard {
     text-align: center;
 }
+
 .button {
     text-align: center;
     height: 50px;
     width: 100px;
     display: inline-block;
 }
+
 .cardFace {
     /* background-color: red; */
     
@@ -22,8 +31,10 @@
     background-color:white;
     background-position: center;
 }
+
 hr {
     border: groove;
+<<<<<<< HEAD
 }s
  .slider{
      width:200px;
@@ -45,16 +56,54 @@ hr {
      width: 100%;
  }
  .rotated{
+=======
+}
+
+.slider {
+    width: 200px;
+    horiz-align: center;
+    display: inline-block;
+}
+
+/*SLIDER COUNTER*/
+
+.custom-handle {
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    text-align: center;
+    line-height: 1.6em;
+    margin-top: 0.8em;
+}
+
+.customize {
+    text-align: center;
+    width: 100%;
+}
+
+.rotated {
+>>>>>>> b646b02b8b28772db70f452e8b9b50a232638565
     transform: rotateY(360deg);
     transform-style: preserve-3d;
     transition: all 0.9s linear;
- }
+}
 
- .row{
-     margin: 0 auto !important;
-     width: 60% !important;
- }
+.row {
+    margin: 0 auto !important;
+    width: 60% !important;
+}
 
-.submit{
+.submit {
     text-align: center;
+}
+
+.cardsType label {
+    color: black;
+}
+
+.cardsTypeForm {
+    display: inline-block;
+    text-align: center;
+    background-color: burlywood;
+    padding-right: 4px;
 }
