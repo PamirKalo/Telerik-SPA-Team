@@ -1,41 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Memory Game</title>
     <link rel="shortcut icon" href="scripts/images/improve-memory.png" type="image/x-icon">
     <script src="scripts/external/jquery/jquery.js"></script>
-    <script src="scripts/main.js"></script>
     <script src="scripts/jquery-ui.min.js"></script>
+    <script src="scripts/main.js"></script>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="scripts/jquery-ui.min.css">
 </head>
 <div id="submit" class="submit">
     <form name="myForm" onsubmit="validateForm()">
-        Score : <span id="score">0</span>
-        Name: <input type="text" name="fname">
+        Score :
+        <span id="score">0</span>
+        Name:
+        <input type="text" name="fname">
         <input type="submit" value="Submit score">
     </form>
 </div>
-<body>
-<!--<div class="gameBoard" id="gameBoard">-->
-    <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="box"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="box"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="box"></div>&ndash;&gt;-->
-        <!--&lt;!&ndash;<div class="box"></div>&ndash;&gt;-->
-    <!--&lt;!&ndash;</div>&ndash;&gt;-->
-<!--</div>-->
-<div class="customize" id="customize">
-    <h2>Choose how many Cards you wish to remember</h2>
-    <div id="slider" class="slider">
-        <div class="ui-slider-handle" id="custom-handle" title="slider"></div>
-    </div>
-    <div class="button">
-        <button class="button" id="createBoardBtn">Crate board</button>
-    </div>
-</div>
 
-<hr>
+<body>
+    <div class="customize" id="customize">
+        <h2>Choose how many Cards you wish to remember</h2>
+        <div id="slider" class="slider">
+            <div class="ui-slider-handle" id="custom-handle" title="slider"></div>
+        </div>
+        <div id="cardsType" class="cardsType">
+            <form class="cardsTypeForm">
+                <input type="radio" name="cardsType" value="0" checked>
+                <label>Words</label>
+                <input type="radio" name="cardsType" value="1">
+                <label>Colors</label>
+                <input type="radio" name="cardsType" value="2">
+                <label>Cats</label>
+            </form>
+        </div>
+        <div class="button">
+            <button class="button" id="createBoardBtn">Crate board</button>
+        </div>
+    </div>
+    <hr>
 </body>
+
 </html>
