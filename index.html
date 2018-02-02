@@ -16,9 +16,17 @@
         Score :
         <span id="score">0</span>
         Name:
-        <input type="text" name="fname">
-        <input type="submit" value="Submit score">
+        <input type="text" name="fname" id="username">
+        <input type="submit" value="Submit score" id="submitBtn">
     </form>
+</div>
+
+<div id="ranklistButton" class="ranklistButton">
+    <form name = "ranklistForm" onsubmit="getRankList()">
+        <input type="button" value="Rank list">
+    </form>
+</div>
+<div id = "ranklist" class="ranklist">
 </div>
 
 <body>
