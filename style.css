@@ -25,7 +25,10 @@ body {
 }
 
 .cardFace {
-    background-color: red;
+    /* background-color: red; */
+    background-repeat: no-repeat;
+    background-color:white;
+    background-position: center;
 }
 
 hr {
