@@ -214,24 +214,19 @@ $(function () {
             hasOpenCard = true;
         }
     }
-
-
-    function validateForm() {
-        var x = document.forms["myForm"]["fname"].value;
-        if (x == "") {
+    
+    $("#submitBtn").on("click", function () {    
+        var username = $('#username').val();
+        if (username == "") {
             alert("Name must be filled out");
             return false;
         }
-    }
-    
-    $("#submitBtn").on("click", function () {    
-         var username = $('#username').val();
          var keyusername = localStorage.getItem(username);
          if (keyusername!==null &&  keyusername>score) {
              score=keyusername;
          } 
          localStorage.setItem(username, score);
-         
+
     })
     
     $("#ranklistButton").on("click" ,function() {
