@@ -70,7 +70,18 @@ $(function () {
     // create game 4x4 board when button is clicked
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
-        console.log($('.progress').attr("aria-valuenow"));
+
+    $('.progress-bar').timer({
+        format:'%H:%M:%S',
+        duration: '5m',
+        countdown: true,
+        callback: function() {
+            alert('Time up!');
+        }
+    });
+
+
+    $('.progress-bar').attr("style", 'width='+$('.progress-bar').html()+"%");
     //     .timer({
     //     duration: '5m',
     //     callback: function() {
