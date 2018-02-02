@@ -230,12 +230,16 @@ $(function () {
     })
     
     $("#ranklistButton").on("click" ,function() {
+                $('#ranklist').empty();
+                // $('#ranklist').hide();
         var ranklistArr = Object.entries(localStorage);
         ranklistArr.sort((a, b)=>(b[1]-a[1]));
         var ol = $("<ol id='olranklist'>");
         for (var r = 0; r<ranklistArr.length; r+=1) {
             ol.append(`<li class="list"> ${ranklistArr[r][0]} : ${ranklistArr[r][1]} </li>`);
         };
+
         $('#ranklist').append(ol);
+        $('#ranklist').toggle();
     })
 })
