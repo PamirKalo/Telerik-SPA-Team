@@ -71,6 +71,13 @@ $(function () {
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
 
+    $('#tim3').timer({
+        duration: '5m',
+        callback: function() {
+            alert('again! you have ' +score+'points');
+        }
+    });
+
     // var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
     var divValueMap = new Map();
 
@@ -196,6 +203,7 @@ $(function () {
             hasOpenCard = true;
         }
     }
+
 
     function validateForm() {
         var x = document.forms["myForm"]["fname"].value;
