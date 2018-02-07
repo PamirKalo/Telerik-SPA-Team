@@ -1,3 +1,4 @@
+
 $(function () {
     var boardSize = 8;
     var score = 0;
@@ -13,20 +14,22 @@ $(function () {
 	    speed = 3000;
 	}
 
-		var imageArr=["image1.jpg","image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg", "image7.jpg",
+	var imageArr=["image1.jpg","image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg", "image7.jpg",
 	"image8.jpg", "image9.jpg", "image10.jpg", "image11.jpg", "image12.jpg", "image13.jpg", "image14.jpg", "image15.jpg",
 	"image16.jpg", "image17.jpg", "image18.jpg", "image19.jpg", "image20.jpg", ];
 
 	var colorArr = ['#5d8aa8','#f0f8ff','#e32636','#efdecd','#ffbf00','#a4c639','#cd9575','#915c83','#008000',
 	     '#fdee00','#66ff00','#004225','#480607','#cc5500','#702963','#c19a6b','#00cc99','#ffa700', '#ffffff', '#000000'];
 	     
-	var  wordArr = ['Variables', 'Math', 'Array', 'if-else', 'function', 'const', 'let', 'random', 'loop', 'for', 
+	var wordArr = ['Variables', 'Math', 'Array', 'if-else', 'function', 'const', 'let', 'random', 'loop', 'for',
 	'switch-case', 'object', 'regex', 'map', 'set', 'graph', 'three', 'link-list', 'scope', 'booleans',];
 
 	var arr = [];
 
     // slider
     $("#submit").css("display", "none"); // hide the score_submit form by default
+
+
     var handle = $("#custom-handle"); 
     $("#slider").slider({
         value: 8,
@@ -44,7 +47,6 @@ $(function () {
     $("#amount").val("$" + $("#slider").slider("value"));
 
     // end of slider
-
     // Tooltip for visualizing the actual board
     $('#slider').tooltip({
         show: {
@@ -71,23 +73,21 @@ $(function () {
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
 
-    $('.progress-bar').timer({
-        format:'%H:%M:%S',
-        duration: '5m',
-        countdown: true,
-        callback: function() {
-            alert('Time up!');
-        }
-    });
+    const startTimer = function () {
+        $('.progress-timer').timer({
+            format:'%H:%M:%S',
+            duration: '5m',
+            countdown: true,
+            callback: function() {
+                alert('Time up!');
+            }
+        });
+        var seconds = $('.progress-timer').data('seconds');
+        $('.progress-bar').addClass('progress-bar-striped active danger');
+        $('.progress').addClass('col-lg-12');
+        $('.progress-bar').css("width", seconds);
+    }
 
-
-    $('.progress-bar').attr("style", 'width='+$('.progress-bar').html()+"%");
-    //     .timer({
-    //     duration: '5m',
-    //     callback: function() {
-    //         alert('again! you have ' +score+'points');
-    //     }
-    // });
 
     // var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
     var divValueMap = new Map();
@@ -97,7 +97,7 @@ $(function () {
         if (hasBoard) { // prevent creation infinity boards
             return;
         }
-
+        startTimer();
         cardsType = $("input[type='radio'][name='cardsType']:checked").val();
 
         $("#customize").hide(); // //hide the customization screen
@@ -227,19 +227,20 @@ $(function () {
          } 
          localStorage.setItem(username, score);
 
-    })
-    
-    $("#ranklistButton").on("click" ,function() {
-                $('#ranklist').empty();
-                // $('#ranklist').hide();
+    });
+
+    $('#leaderboard').on('click' ,function(e) {
+        console.log('heelo');
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+        $(".sidebar-nav").empty();
         var ranklistArr = Object.entries(localStorage);
         ranklistArr.sort((a, b)=>(b[1]-a[1]));
-        var ol = $("<ol id='olranklist'>");
-        for (var r = 0; r<ranklistArr.length; r+=1) {
-            ol.append(`<li class="list"> ${ranklistArr[r][0]} : ${ranklistArr[r][1]} </li>`);
-        };
 
-        $('#ranklist').append(ol);
-        $('#ranklist').toggle();
-    })
-})
+        //create holding list for the results
+        for (var r = 0; r<ranklistArr.length; r+=1) {
+            $(".sidebar-nav").append(`<li class="list"> ${ranklistArr[r][0]} : ${ranklistArr[r][1]} </li>`);
+        };
+        //append the list to the div ranklist
+    });
+});
