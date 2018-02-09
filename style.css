@@ -27,7 +27,7 @@ body {
 .cardFace {
     /* background-color: red; */
     background-repeat: no-repeat;
-    background-color:white;
+    background-color: white;
     background-position: center;
 }
 
@@ -39,7 +39,7 @@ hr {
     width: 50%;
     horiz-align: center;
     display: inline-block;
-    margin:3%;
+    margin: 3%;
 }
 
 /*SLIDER COUNTER*/
@@ -72,6 +72,7 @@ hr {
 
 .submit {
     text-align: center;
+    background-color: transparent;
 }
 
 .cardsType label {
@@ -83,12 +84,14 @@ hr {
     background-color: burlywood;
 }
 
-.progress{
-    position: relative ;
-    top: 0;
-
+.row {
+    font-size: 200%;
 }
 
+.progress {
+    position: relative;
+    top: 0;
+}
 
 #wrapper {
     padding-left: 0;
@@ -174,6 +177,6 @@ hr {
     }
 }
 
-.modal-content{
+.modal-content {
     padding: 2%;
 }
