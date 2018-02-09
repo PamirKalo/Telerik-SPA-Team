@@ -28,6 +28,7 @@ $(function () {
 
     // slider
     $("#submit").css("display", "none"); // hide the score_submit form by default
+    $(".wiki").hide();
 
 
     var handle = $("#custom-handle"); 
@@ -85,7 +86,7 @@ $(function () {
         var seconds = $('.progress-timer').data('seconds');
         $('.progress-bar').addClass('progress-bar-striped active danger');
         $('.progress').addClass('col-lg-12');
-        $('.progress-bar').css("width", seconds);
+        $('.progress-bar').css("width", parseInt(seconds) + "px");
     }
 
 
@@ -97,11 +98,11 @@ $(function () {
         if (hasBoard) { // prevent creation infinity boards
             return;
         }
-        startTimer();
         cardsType = $("input[type='radio'][name='cardsType']:checked").val();
-
+        $(".wiki").show()
         $("#customize").hide(); // //hide the customization screen
         $("#submit").show(); //show the form for submitting score
+        startTimer();
 
 		var rowSize = 4; // Math.floor(Math.sqrt(boardSize*2))
 		var colSize = boardSize * 2 / 4;
@@ -109,7 +110,6 @@ $(function () {
 		var divGameBoard = $("<div class='gameBoard' id='#gameBoard'>");
 		var divBox;
 		var divRow;
-		var startButton = $("<button>Start game!</button>");
 
         function randDigits(max, min) {
             return Math.floor(Math.random() * (max - min)) + min;
@@ -149,12 +149,8 @@ $(function () {
             }
             divGameBoard.append(divRow);
         }
-        $("body").append(divGameBoard);
+        $("#wrapper").append(divGameBoard);
         hasBoard = true;
-        if (hasBoard) {
-            startButton.addClass("button");
-            $("#submit").append(startButton);
-        }
     }
 
     var hasOpenCard = false;
@@ -214,7 +210,7 @@ $(function () {
             hasOpenCard = true;
         }
     }
-    
+
     $("#submitBtn").on("click", function () {    
         var username = $('#username').val();
         if (username == "") {
@@ -243,4 +239,29 @@ $(function () {
         };
         //append the list to the div ranklist
     });
+
+    $('#btnWiki').on('click', function () {
+        $.ajax({
+            url: "https://en.wikipedia.org/w/api.php",
+            data: {
+                format: "json",
+                action: "parse",
+                page: $("#searchText").val(),
+                prop: "text",
+                section: 0,
+            },
+            dataType: 'jsonp',
+            headers: {
+                'Api-User-Agent': 'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'
+            },
+            success: function (data) {
+
+                console.log(data)
+                var markup = data.parse.text["*"];
+                var i = $('<div></div>').html(markup);
+                $('#article').html(i);
+            }
+        })
+    });
+
 });
