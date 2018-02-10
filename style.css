@@ -11,6 +11,7 @@ body {
     width: 200px;
     display: table-cell;
     vertical-align: middle;
+    max-width: 200px;
 }
 
 .gameBoard {
@@ -37,7 +38,7 @@ hr {
 
 .slider {
     width: 50%;
-    horiz-align: center;
+    text-align: center;
     display: inline-block;
     margin: 3%;
 }
@@ -68,6 +69,7 @@ hr {
 .row {
     margin: 0 auto !important;
     width: 60% !important;
+    font-size: 200%;
 }
 
 .submit {
@@ -82,10 +84,6 @@ hr {
 .cardsTypeForm {
     text-align: center;
     background-color: burlywood;
-}
-
-.row {
-    font-size: 200%;
 }
 
 .progress {
