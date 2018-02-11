@@ -122,12 +122,11 @@ $(function () {
         $(".wiki").show()
         $("#customize").hide(); // //hide the customization screen
         $("#submit").show(); //show the form for submitting score
-        startTimer();
 
         var rowSize = 4; // Math.floor(Math.sqrt(boardSize*2))
         var colSize = boardSize * 2 / 4;
         var idNumber = 1;
-        var divGameBoard = $("<div class='gameBoard' id='#gameBoard'>");
+        var divGameBoard = $("<div class='gameBoard col-lg-8 col-md-9 col-xs-12 col-sm-12 col-centered' id='#gameBoard'>");
         var divBox;
         var divRow;
 
@@ -160,7 +159,7 @@ $(function () {
         for (var i = 0; i < rowSize; i++) {
             divRow = $("<div class='row'>");
             for (var j = 0; j < colSize; j++) {
-                divBox = $("<div class='box'>")
+                divBox = $("<div class='thumbnail_box'>")
                     .on('click', showCurrentCard);
                 divRow.append(divBox.attr('id', 'box' + idNumber));
                 divValueMap.set('box' + idNumber, arr[idNumber - 1]);
@@ -168,7 +167,7 @@ $(function () {
             }
             divGameBoard.append(divRow);
         }
-        $("#wrapper").append(divGameBoard);
+        $("#boardWrapper").append(divGameBoard);
         hasBoard = true;
     }
 
@@ -229,12 +228,14 @@ $(function () {
         }
     }
 
-    $("#submitBtn").on("click", function () {
+    $("#submitBtn").on('click', function () {
         var username = $('#username').val();
         if (username == "") {
             alert("Name must be filled out");
             return false;
         }
+        alert('Success');
+        
         var keyusername = localStorage.getItem(username);
         if (keyusername !== null && keyusername > score) {
             score = keyusername;
@@ -244,7 +245,6 @@ $(function () {
     });
 
     $('#leaderboard').on('click', function (e) {
-        console.log('heelo');
         e.preventDefault();
         $("#wrapper").toggleClass("toggled");
         $(".sidebar-nav").empty();
@@ -274,7 +274,7 @@ $(function () {
             },
             success: function (data) {
 
-                console.log(data)
+                console.log(data);
                 var markup = data.parse.text["*"];
                 var i = $('<div></div>').html(markup);
                 $('#article').html(i);
@@ -282,4 +282,17 @@ $(function () {
         })
     });
 
+    // Time logic
+    $('#startBtn').on('click' , function () {
+        startTimer();
+        $('#startBtn').hide();
+    });
+    $('#pauseBtn').on('click' , function () {
+        $('.progress-timer').timer('pause');
+    });
+    $('#resumeBtn').on('click' , function () {
+        $('.progress-timer').timer('resume');
+    });
+
 });
+
