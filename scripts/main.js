@@ -221,14 +221,13 @@ $(function () {
             alert("Name must be filled out");
             return false;
         }
-        alert('Success');
-
         var keyusername = localStorage.getItem(username);
         if (keyusername !== null && keyusername > score) {
             score = keyusername;
         }
         localStorage.setItem(username, score);
-
+        alert('Success');
+        location.reload(true);
     });
 
     $('#leaderboard').on('click', function (e) {

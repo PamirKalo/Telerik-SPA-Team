@@ -201,3 +201,10 @@ hr {
 .form-group #username{
     font-size : 0.6em;
 }
+
+.hat img{
+    width: 120px;
+    height: 80px;
+    margin-left: -50px;
+    margin-top: -100px;
+}
