@@ -13,8 +13,8 @@ $(function () {
         '#fdee00', '#66ff00', '#004225', '#480607', '#cc5500', '#702963', '#c19a6b', '#00cc99', '#ffa700', '#ffffff', '#000000'
     ];
 
-    var wordArr = ['Variables', 'Math', 'Array', 'if-else', 'function', 'const', 'let', 'random', 'loop', 'for',
-        'switch-case', 'object', 'regex', 'map', 'set', 'graph', 'three', 'link-list', 'scope', 'booleans',
+    var wordArr = ['binary-tree', 'Math', 'array', 'if-else', 'function', 'const', 'let', 'random', 'loop', 'for',
+        'switch-case', 'object', 'Regex', 'map', 'set', 'graph', 'var', 'linked-list', 'scope', 'boolean',
     ];
 
     var arr = [];
