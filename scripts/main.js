@@ -2,16 +2,7 @@ $(function () {
     var boardSize = 8;
     var score = 0;
     var cardsType = 0;
-    var speedType = 0;
-    var speed;
 
-    if (speedType === 0) {
-        speed = 1000;
-    } else if (speedType === 1) {
-        speed = 2000;
-    } else if (speedType === 2) {
-        speed = 3000;
-    }
 
     var imageArr = ["image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg", "image6.jpg", "image7.jpg",
         "image8.jpg", "image9.jpg", "image10.jpg", "image11.jpg", "image12.jpg", "image13.jpg", "image14.jpg", "image15.jpg",
@@ -22,7 +13,7 @@ $(function () {
         '#fdee00', '#66ff00', '#004225', '#480607', '#cc5500', '#702963', '#c19a6b', '#00cc99', '#ffa700', '#ffffff', '#000000'
     ];
 
-    var wordArr = ['Variables', 'Math', 'Array', 'if-else', 'function', 'const', 'let', 'random', 'loop', 'for',
+    var wordArr = ['Binary Tree', 'Math', 'Array', 'if-else', 'function', 'const', 'let', 'random', 'loop', 'for',
         'switch-case', 'object', 'regex', 'map', 'set', 'graph', 'three', 'link-list', 'scope', 'booleans',
     ];
 
