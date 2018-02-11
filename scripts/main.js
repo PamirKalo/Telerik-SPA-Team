@@ -52,24 +52,7 @@ $(function () {
     // end of slider
     // Tooltip for visualizing the actual board
     $('#slider').tooltip({
-        show: {
-            duration: 0
-        },
-        hide: {
-            effect: "fade",
-            duration: 100
-        },
-        track: true,
-        content: function () {
-            if (boardSize === 8) {
-                return ("<p>easy</p>");
-            } else if (boardSize === 10) {
-                return ("<p>medium</p>");
-            } else {
-                return ("<p>hard</p>");
-            }
-        }
-
+    track:true
     });
 
     // create game 4x4 board when button is clicked
