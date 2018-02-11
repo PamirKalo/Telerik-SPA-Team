@@ -52,7 +52,7 @@ $(function () {
     // end of slider
     // Tooltip for visualizing the actual board
     $('#slider').tooltip({
-    track:true
+        track: true
     });
 
     // create game 4x4 board when button is clicked
@@ -150,6 +150,7 @@ $(function () {
             }
             divGameBoard.append(divRow);
         }
+
         $("#boardWrapper").append(divGameBoard);
         hasBoard = true;
     }
@@ -159,14 +160,17 @@ $(function () {
     var inSetTimeOut = false;
 
     function showCurrentCard() {
-        if (inSetTimeOut) {
+        if (inSetTimeOut || !$(".progress-timer").text()) {
             return;
         }
+
         if (hasOpenCard && $(this).attr('id') === openedCardId) {
             return;
         }
+
         var el = $(this);
         var ind = divValueMap.get(el.attr("id"));
+
         $(this).toggleClass("rotated");
 
         if (cardsType === '2') {
@@ -266,16 +270,15 @@ $(function () {
     });
 
     // Time logic
-    $('#startBtn').on('click' , function () {
+    $('#startBtn').on('click', function () {
         startTimer();
         $('#startBtn').hide();
     });
-    $('#pauseBtn').on('click' , function () {
+    $('#pauseBtn').on('click', function () {
         $('.progress-timer').timer('pause');
     });
-    $('#resumeBtn').on('click' , function () {
+    $('#resumeBtn').on('click', function () {
         $('.progress-timer').timer('resume');
     });
 
 });
-
