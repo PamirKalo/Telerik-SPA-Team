@@ -198,6 +198,11 @@ hr {
 .form-group{
     margin: 0 !important;
 }
+
+.form-group .badge{
+    font-size: 0.8em;
+}
+
 .form-group #username{
     font-size : 0.6em;
 }
