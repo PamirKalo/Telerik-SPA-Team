@@ -4,6 +4,12 @@ body {
     /* background-color: #811212; */
 }
 
+h1{
+    text-align: center;
+    font-size: 70px;
+    font-weight: bold;
+}
+
 .thumbnail_box {
     display: table-cell;
     height: 110px;
