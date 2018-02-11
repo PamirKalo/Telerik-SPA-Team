@@ -235,7 +235,7 @@ $(function () {
             return false;
         }
         alert('Success');
-        
+
         var keyusername = localStorage.getItem(username);
         if (keyusername !== null && keyusername > score) {
             score = keyusername;

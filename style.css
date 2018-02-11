@@ -5,14 +5,14 @@ body {
 }
 
 .thumbnail_box {
-    display: block;
-    float: left;
+    display: table-cell;
     height: 110px;
-    width: 25%;
+    width: 200px;
     line-height: 1.42857143;
     background-color: #1b3650;
     border: 1px solid #ddd;
     border-radius: 4px;
+    vertical-align: middle;
 }
 
 .gameBoard {
