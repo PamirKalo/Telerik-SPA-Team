@@ -217,7 +217,6 @@ $(function () {
             score = keyusername;
         }
         localStorage.setItem(username, score);
-        alert('Success');
         location.reload(true);
     });
 
@@ -230,7 +229,7 @@ $(function () {
 
         //create holding list for the results
         for (var r = 0; r < ranklistArr.length; r += 1) {
-            $(".sidebar-nav").append(`<li class="list"> ${ranklistArr[r][0]} : ${ranklistArr[r][1]} </li>`);
+            $(".sidebar-nav").append(`<li class="list"> ${ranklistArr[r][0]} <span class="badge"> ${ranklistArr[r][1]}</span> </li>`);
         };
         //append the list to the div ranklist
     });
@@ -250,8 +249,6 @@ $(function () {
                 'Api-User-Agent': 'MyCoolTool/1.1 (http://example.com/MyCoolTool/; MyCoolTool@example.com) BasedOnSuperLib/1.4'
             },
             success: function (data) {
-
-                console.log(data);
                 var markup = data.parse.text["*"];
                 var i = $('<div></div>').html(markup);
                 $('#article').html(i);
@@ -270,5 +267,4 @@ $(function () {
     $('#resumeBtn').on('click', function () {
         $('.progress-timer').timer('resume');
     });
-
 });
