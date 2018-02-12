@@ -41,28 +41,12 @@ $(function () {
     $("#amount").val("$" + $("#slider").slider("value"));
 
     // end of slider
-    // Tooltip for visualizing the actual board
-    $('#slider').tooltip({
-        track: true
-    });
+
 
     // create game 4x4 board when button is clicked
     $("#createBoardBtn").on("click", createBoard);
     var hasBoard = false;
-    // const startTimer = function () {
-    //     $('.progress-timer').timer({
-    //         format:'%H:%M:%S',
-    //         duration: '5m',
-    //         countdown: true,
-    //         callback: function() {
-    //             alert('Time up!');
-    //         }
-    //     });
-    //     var seconds = $('.progress-timer').data('seconds');
-    //     $('.progress-bar').addClass('progress-bar-striped active danger');
-    //     $('.progress').addClass('col-lg-12');
-    //     $('.progress-bar').css("width", parseInt(seconds) + "px");
-    // }
+
 
     const startTimer = function () {
         $('.progress-timer').timer({
@@ -84,7 +68,18 @@ $(function () {
         }, 1000)
     }
 
-    // var arr = [1, 3, 5, 2, 6, 12, 8, 40, 3, 12, 8, 1, 5, 6, 40, 2, 15, 7, 13, 7, 9, 15, 9, 13];
+    // Time controls
+    $('#startBtn').on('click', function () {
+        startTimer();
+        $('#startBtn').hide();
+    });
+    $('#pauseBtn').on('click', function () {
+        $('.progress-timer').timer('pause');
+    });
+    $('#resumeBtn').on('click', function () {
+        $('.progress-timer').timer('resume');
+    });
+
     var divValueMap = new Map();
 
 
@@ -226,8 +221,8 @@ $(function () {
         $(".sidebar-nav").empty();
         var ranklistArr = Object.entries(localStorage);
         ranklistArr.sort((a, b) => (b[1] - a[1]));
-
         //create holding list for the results
+
         for (var r = 0; r < ranklistArr.length; r += 1) {
             $(".sidebar-nav").append(`<li class="list"> ${ranklistArr[r][0]} <span class="badge"> ${ranklistArr[r][1]}</span> </li>`);
         };
@@ -256,15 +251,5 @@ $(function () {
         })
     });
 
-    // Time logic
-    $('#startBtn').on('click', function () {
-        startTimer();
-        $('#startBtn').hide();
-    });
-    $('#pauseBtn').on('click', function () {
-        $('.progress-timer').timer('pause');
-    });
-    $('#resumeBtn').on('click', function () {
-        $('.progress-timer').timer('resume');
-    });
+
 });
