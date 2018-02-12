@@ -1,7 +1,7 @@
 # Telerik-SPA-Teamproject - Team 4
 __Organization:__ Telerik Alpha 2018  
 This is a simple Single Page Application(SPA) project.  
-**Purpose:** education, excercise JQuery, DOM manipulations with JavaScript, SPA structure, AJAX, project timing, Git-clients and GitHub, Trello - task managing sftware, team colaboration.  
+**Purpose:** education, excercise JQuery, DOM manipulations with JavaScript, SPA structure, AJAX, project timing, Git-clients and GitHub, Trello - task managing software, team colaboration.  
 **App Type:** Memory card game.  
 **Short description:** single player game. The player choose two cards. Should the opened card match with another, they both stay revealed. If not, they are hidden again. Purpose is to reveal all the cards on the field...  
 The field or game board can be customized by the player. He can choose from three game board sizes - 16, 20 or 24 cards. Moreover it is also possible to select three card types:  
