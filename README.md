@@ -1,5 +1,5 @@
 # Telerik-SPA-Teamproject - Team 4
-__Organization:__ Telerik Alpha 2018  
+__Organization:__ Telerik Alpha 2017  
 This is a simple Single Page Application(SPA) project.  
 **Purpose:** education, excercise JQuery, DOM manipulations with JavaScript, SPA structure, AJAX, project timing, Git-clients and GitHub, Trello - task managing software, team colaboration.  
 **App Type:** Memory card game.  
